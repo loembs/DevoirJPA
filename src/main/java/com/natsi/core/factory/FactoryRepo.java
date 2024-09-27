@@ -1,18 +1,19 @@
 package com.natsi.core.factory;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import com.natsi.entities.User;
-import com.natsi.repositories.bd.ArticleRepositoryBD;
 import com.natsi.repositories.bd.ClientRepositoryBD;
-import com.natsi.repositories.list.ArticleRepository;
+import com.natsi.repositories.bd.UserRepositoryBD;
 import com.natsi.repositories.list.ClientRepository;
 import com.natsi.repositories.list.UserRepository;
-import com.natsi.repositories.list.Impl.ArticleRepositoryList;
-import com.natsi.repositories.list.Impl.ClientRepositoryList;
-import com.natsi.repositories.list.Impl.UserRepositoryList;
 
 public class FactoryRepo {
-     
-        private  ArticleRepository articleRepository=null;
+        /*private EntityManagerFactory emf= Persistence.createEntityManagerFactory("SQL");
+        private EntityManager em = emf.createEntityManager();*/
+        
         private  ClientRepository clientRepo=null;
         private  UserRepository<User> userRepository=null;
         
@@ -23,19 +24,15 @@ public class FactoryRepo {
         return clientRepo;
     }
     public  UserRepository<User>  getInstanceUserRepository(){
+        ClientRepositoryBD clientRepositoryBD = new ClientRepositoryBD();
         if( userRepository==null){
-            userRepository= new UserRepositoryList();
+            userRepository= new UserRepositoryBD(clientRepositoryBD);
         }
         return  userRepository;
     }
-    public  ArticleRepository  getInstanceArticleRepository(){
-        if(articleRepository==null){
-            articleRepository= new ArticleRepositoryBD();
-        }
-        return  articleRepository;
-    }
+    
 
-    //ClientRepositoryBD clientRepositoryBD = new ClientRepositoryBD();
+
     //UserRepository<User> userRepository= new UserRepositoryBD(clientRepositoryBD);
     
 }

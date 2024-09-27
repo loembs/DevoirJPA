@@ -1,8 +1,4 @@
 package com.natsi.core.factory;
-
-import com.natsi.services.ClientService;
-import com.natsi.services.Impl.ArticleServiceImpl;
-import com.natsi.services.Impl.UserServiceImpl;
 import com.natsi.views.ArticleView;
 import com.natsi.views.ClientView;
 

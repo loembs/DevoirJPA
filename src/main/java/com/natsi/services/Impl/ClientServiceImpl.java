@@ -4,7 +4,6 @@ import com.natsi.entities.Client;
 import com.natsi.entities.User;
 import com.natsi.repositories.list.ClientRepository;
 import com.natsi.repositories.list.Repository;
-import com.natsi.repositories.list.Impl.ClientRepositoryList;
 import com.natsi.services.ClientService;
 
 import java.util.List;

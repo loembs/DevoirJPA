@@ -1,43 +1,33 @@
 package com.natsi.entities;
-import lombok.*;
-@Getter
-@Setter
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.OneToOne;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import lombok.Data;
+@Data
+@Entity
+@Table(name = "user")
+
 public class User {
+  
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO )
     private int id;
     private String login;
     private String nom;
     private String prenom;
     private String password;
-    private Client client;
+    @Enumerated(EnumType.STRING)
     private Role role ;
     private Etat etat;
-    @Override
-    public String toString() {
-        return "User [login=" + login + ", nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", client="
-                + client + ", role=" + role + ", etat=" + etat + "]";
-    }
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((login == null) ? 0 : login.hashCode());
-        return result;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        if (login == null) {
-            if (other.login != null)
-                return false;
-        } else if (!login.equals(other.login))
-            return false;
-        return true;
-    }
+
+    @OneToOne
+    private Client client;
+    
     
 }

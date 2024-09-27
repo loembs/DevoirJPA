@@ -7,14 +7,11 @@ import com.natsi.repositories.core.Database;
 public class DataServiceImpl<T> implements Database<T>{
         String ConnectionBDMysql="";
         String ConnectionBDPostgresql="";
+        
         final String driver = "org.postgresql.Driver";
         final String url = "jdbc:postgresql://localhost:5432/gestion_dette_java";
         final String user = "postgres"; 
         final String password = "root";
-        /*final String driver = "org.postgresql.Driver";
-        final String url = "jdbc:postgresql://localhost:5432/gestion_dette_java";
-        final String user = "postgres"; 
-        final String password = "root";*/
        
 
         /*final String driver="com.mysql.cj.jdbc.Driver";

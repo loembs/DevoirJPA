@@ -5,8 +5,6 @@ import com.natsi.core.factory.FactoryView;
 
 import java.util.List;
 import java.util.Scanner;
-
-import com.natsi.entities.Article;
 import com.natsi.entities.Client;
 import com.natsi.entities.Etat;
 import com.natsi.entities.Role;
@@ -19,7 +17,6 @@ public class Main {
     public static void main(String[] args) {
 
         FactoryView factoryView=new FactoryView();
-        
         FactoryServ factoryServ=new FactoryServ();
 
         int choix;
@@ -152,22 +149,10 @@ public class Main {
                         
                     break;
                 case 8:
-                    factoryServ.getInstanceArticleServiceImpl().create(factoryView.getInstanceArticleView().saisie());
                     break;
                 case 9:
-                        List<Article> listArticles = factoryServ.getInstanceArticleServiceImpl().findAll();
-                        listArticles.forEach(System.out::println);
                     break;
                 case 10:
-                    List<Article> list = factoryServ.getInstanceArticleServiceImpl().findAll();
-                    list.forEach(System.out::println);
-                    System.out.println("Entrer l'id de l'article");
-                    int id=scanner.nextInt();
-                    Article article=factoryServ.getInstanceArticleServiceImpl().searchById(id);
-                    System.out.println("Entrer la quantite");
-                    int qte=scanner.nextInt();
-                    article.setQtestock(qte);
-                    //updateArticle(article);
                     break;
                 default:
                         break;
