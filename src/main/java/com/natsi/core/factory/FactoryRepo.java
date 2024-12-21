@@ -11,8 +11,6 @@ import com.natsi.repositories.list.ClientRepository;
 import com.natsi.repositories.list.UserRepository;
 
 public class FactoryRepo {
-        /*private EntityManagerFactory emf= Persistence.createEntityManagerFactory("SQL");
-        private EntityManager em = emf.createEntityManager();*/
         
         private  ClientRepository clientRepo=null;
         private  UserRepository<User> userRepository=null;

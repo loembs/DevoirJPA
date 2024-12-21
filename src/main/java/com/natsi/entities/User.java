@@ -1,6 +1,7 @@
 package com.natsi.entities;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.OneToOne;
 
@@ -27,6 +28,7 @@ public class User {
     private Etat etat;
 
     @OneToOne
+    @JoinColumn(name ="client_id",nullable=true)
     private Client client;
     
     
